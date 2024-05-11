@@ -1,21 +1,22 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta charset="UTF-8">
-  <title>Image to Outline Converter</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+  
+    <title>WebGL Filter Viewer with File Input</title>
 
-  <style>
-    #canvas_viewer {
-      border: 1px solid black;
-    }
-  </style>
 </head>
 <body>
-
   <h1>Image to Outline Converter</h1>
+  <canvas id="canvas_viewer" style="visibility: hidden;" width="800" height="600"></canvas>
+  <canvas id="canvas1" style="visibility: hidden;" width="0" height="0"></canvas>
+  <canvas id="canvas2" style="visibility: hidden;" width="0" height="0"></canvas>
   
-  <input id="myfile" type="file" accept="image/*">
-  <canvas id="canvas_viewer" width="800" height="600"></canvas>
+  <image id="imginput" style="visibility: hidden;"></image>
+  <input id="myfile" type="file" accept="image/*" multiple="multiple">
+  <image id="svgoutput"></image>
+ 
+  
     <br><br>
   <label for="beta">Beta:</label>
   <input type="range" id="beta" min="0" max="100" value="50">
@@ -39,18 +40,7 @@
 
   <label for="clean">Clean:</label>
   <input type="range" id="clean" min="0" max="100" value="50">
-
-  <script>
-
-      // Handle the image input change event
-      myfile.addEventListener('change', function(event) {
-        var imageFile = event.target.files[0];
-        
-        
-      });
-
-  </script>
-      <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+  <script src="output.js"></script>
     <script src="image-to-outline.js"></script>
 </body>
 </html>
