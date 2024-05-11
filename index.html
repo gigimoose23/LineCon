@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Image to Outline Converter</title>
+
+  <style>
+    #canvas_viewer {
+      border: 1px solid black;
+    }
+  </style>
+</head>
+<body>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+  <h1>Image to Outline Converter</h1>
+  
+  <input id="myfile" type="file" accept="image/*">
+  <canvas id="canvas_viewer" width="800" height="600"></canvas>
+    <br><br>
+  <label for="beta">Beta:</label>
+  <input type="range" id="beta" min="0" max="100" value="50">
+
+  <br><br>
+
+  <label for="gamma">Gamma:</label>
+  <input type="range" id="gamma" min="0" max="100" value="50">
+
+  <br><br>
+
+  <label for="outline">Outline:</label>
+  <input type="checkbox" id="outline">
+
+  <br><br>
+
+  <label for="light">Light:</label>
+  <input type="range" id="light" min="0" max="100" value="50">
+
+  <br><br>
+
+  <label for="clean">Clean:</label>
+  <input type="range" id="clean" min="0" max="100" value="50">
+
+  <script>
+
+      // Handle the image input change event
+      myfile.addEventListener('change', function(event) {
+        var imageFile = event.target.files[0];
+        
+        
+      });
+
+  </script>
+    <script src="image-to-outline.js"></script>
+</body>
+</html>
