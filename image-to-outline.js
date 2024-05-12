@@ -1695,15 +1695,10 @@ var Shaders = {
                                 const dataURL = this.canvas.toDataURL();
                                 Potrace.setParameter({ turdsize: this.clean }),
                                     Potrace.loadImage(dataURL, function () {
-                                        const outputImg = document.getElementById("svgoutput"),
+                                        let outputImg = document.createElement('img'),
                                             svgdata = "data:image/svg+xml;base64," + window.btoa(Potrace.getSVG(1));
                                         outputImg.setAttribute("src", svgdata),
-                                            $(".nav-tabs a").removeClass("active"),
-                                            $(".nav-tabs a").removeClass("show"),
-                                            $(".tab-pane").removeClass("active"),
-                                            $('.nav-tabs a[href="#tab2"').addClass("active"),
-                                            $('.nav-tabs a[href="#tab2"').addClass("show"),
-                                            $("#tab2").addClass("active");
+                                            document.getElementById('body').appendChild(outputImg);
                                     });
                             }, 0);
                     } else if (this.usrFilter == EcognitaWeb3D.Filter.FDoG) {
@@ -1811,7 +1806,10 @@ var Shaders = {
                         for (fileData of fileInput.files) {
                             console.log("on image index " + index);
                             index += 1;
-                            if (!fileData.type.match("image.*")) return void alert("you should upload a image!");
+                            if (index === fileInput.files.length) {
+                                console.log("finished index")
+                            }
+                            if (!fileData.type.match("image.*")) return void alert("Invalid File Format");
                         $('.nav-tabs a[href="#tab1"').trigger("click");
                         const url = URL.createObjectURL(fileData);
                         document.getElementById("imginput").setAttribute("src", url);
